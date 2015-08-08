@@ -1,0 +1,53 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Listing Bills</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Rfc</th>
+      <th>Nombre</th>
+      <th>Apellido paterno</th>
+      <th>Apellido materno</th>
+      <th>Numero exterior</th>
+      <th>Colonia</th>
+      <th>Localidad</th>
+      <th>Codigo postal</th>
+      <th>Calle</th>
+      <th>Numero interior</th>
+      <th>Municipio</th>
+      <th>Entidad federal</th>
+      <th>Correo</th>
+      <th>Telefono</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @bills.each do |bill| %>
+      <tr>
+        <td><%= bill.rfc %></td>
+        <td><%= bill.nombre %></td>
+        <td><%= bill.apellido_paterno %></td>
+        <td><%= bill.apellido_materno %></td>
+        <td><%= bill.numero_exterior %></td>
+        <td><%= bill.colonia %></td>
+        <td><%= bill.localidad %></td>
+        <td><%= bill.codigo_postal %></td>
+        <td><%= bill.calle %></td>
+        <td><%= bill.numero_interior %></td>
+        <td><%= bill.municipio %></td>
+        <td><%= bill.entidad_federal %></td>
+        <td><%= bill.correo %></td>
+        <td><%= bill.telefono %></td>
+        <td><%= link_to 'Show', bill %></td>
+        <td><%= link_to 'Edit', edit_bill_path(bill) %></td>
+        <td><%= link_to 'Destroy', bill, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Bill', new_bill_path %>
