@@ -2,77 +2,141 @@
 
 <p>
   <strong>Rfc:</strong>
-  <%= @bill.rfc %>
+  <label id="rfc"><%= @bill.rfc %></label>
+  <button class='copy_button' data-clipboard-target='rfc' data-clipboard-text='No Existe RFC' id='rfc_clip' title='Copiar RFC'>
+    <b>Copiar RFC</b>
+  </button>
 </p>
-<%= image_tag @qr %>
+
+
 <p>
   <strong>Nombre:</strong>
-  <%= @bill.nombre %>
+  <label id="nombre" ><%= @bill.nombre %></label>
+  <button class='copy_button' data-clipboard-target='nombre' data-clipboard-text='No existe Nombre' id='nombre_clip' title='Copiar Nombre'>
+    <b>Copiar Nombre</b>
+  </button>
 </p>
 
 <p>
   <strong>Apellido paterno:</strong>
-  <%= @bill.apellido_paterno %>
+  <label id="apellido_paterno"><%= @bill.apellido_paterno %></label>
+  <button class='copy_button' data-clipboard-target='apellido_paterno' data-clipboard-text='No existe apellido paterno' id='apellido_paterno_clip' title='Copiar Apellido Paterno'>
+    <b>Copiar Apellido Paterno</b>
+  </button>
 </p>
 
 <p>
   <strong>Apellido materno:</strong>
-  <%= @bill.apellido_materno %>
+  <label id="apellido_materno"><%= @bill.apellido_materno %></label>
+  <button class='copy_button' data-clipboard-target='apellido_materno' data-clipboard-text='No existe apellido materno' id='apellido_materno_clip' title='Copiar Apellido Materno'>
+    <b>Copiar Apellido Materno</b>
+  </button>
 </p>
 
 <p>
   <strong>Numero exterior:</strong>
-  <%= @bill.numero_exterior %>
+  <label id="numero_exterior"><%= @bill.numero_exterior %></label>
+  <button class='copy_button' data-clipboard-target='numero_exterior' data-clipboard-text='No existe numero exterior' id='numero_exterior_clip' title='Copiar Numero Exterior'>
+    <b>Copiar Numero Exterior</b>
+  </button>
 </p>
 
 <p>
   <strong>Colonia:</strong>
-  <%= @bill.colonia %>
+  <label id="colonia"><%= @bill.colonia %></label>
+  <button class='copy_button' data-clipboard-target='colonia' data-clipboard-text='No existe colonia' id='colonia_clip' title='Copiar Colonia'>
+    <b>Copiar Colonia</b>
+  </button>
 </p>
 
 <p>
   <strong>Localidad:</strong>
-  <%= @bill.localidad %>
+  <label id="localidad"><%= @bill.localidad %></label>
+  <button class='copy_button' data-clipboard-target='localidad' data-clipboard-text='No existe localidad' id='localidad_clip' title='Copiar Localidad'>
+    <b>Copiar Localidad</b>
+  </button>
 </p>
 
 <p>
   <strong>Codigo postal:</strong>
-  <%= @bill.codigo_postal %>
+  <label id="codigo_postal"><%= @bill.codigo_postal %></label>
+  <button class='copy_button' data-clipboard-target='codigo_postal' data-clipboard-text='No existe codigo postal' id='codigo_postal_clip' title='Copiar Codigo Postal'>
+    <b>Copiar Codigo Postal</b>
+  </button>
 </p>
 
 <p>
   <strong>Calle:</strong>
-  <%= @bill.calle %>
+  <label id="calle"><%= @bill.calle %></label>
+  <button class='copy_button' data-clipboard-target='calle' data-clipboard-text='No existe calle' id='calle_clip' title='Copiar Calle'>
+    <b>Copiar Calle</b>
+  </button>
 </p>
 
 <p>
   <strong>Numero interior:</strong>
-  <%= @bill.numero_interior %>
+  <label id="numero_interior"><%= @bill.numero_interior %></label>
+  <button class='copy_button' data-clipboard-target='numero_interior' data-clipboard-text='No existe numero interior' id='numero_interior_clip' title='Copiar Numero Interior'>
+    <b>Copiar Numero Interior</b>
+  </button>
 </p>
 
 <p>
   <strong>Municipio:</strong>
-  <%= @bill.municipio %>
+  <label id="municipio"><%= @bill.municipio %></label>
+  <button class='copy_button' data-clipboard-target='municipio' data-clipboard-text='No existe municipio' id='municipio_clip' title='Copiar Municipio'>
+    <b>Copiar Municipio</b>
+  </button>
 </p>
 
 <p>
   <strong>Entidad federal:</strong>
-  <%= @bill.entidad_federal %>
+  <label id="entidad_federal"><%= @bill.entidad_federal %></label>
+  <button class='copy_button' data-clipboard-target='entidad_federal' data-clipboard-text='No existe entidad federal' id='entidad_federal_clip' title='Copiar Entidad Federal'>
+    <b>Copiar Entidad Federal</b>
+  </button>
 </p>
 
 <p>
   <strong>Correo:</strong>
-  <%= @bill.correo %>
+  <label id="correo"><%= @bill.correo %></label>
+  <button class='copy_button' data-clipboard-target='correo' data-clipboard-text='No existe correo' id='correo_clip' title='Copiar Correo'>
+    <b>Copiar Correo</b>
+  </button>
 </p>
 
 <p>
   <strong>Telefono:</strong>
-  <%= @bill.telefono %>
+  <label id="telefono"><%= @bill.telefono %></label>
+  <button class='copy_button' data-clipboard-target='telefono' data-clipboard-text='No existe telefono' id='telefono_clip' title='Copiar Telefono'>
+    <b>Copiar Telefono</b>
+  </button>
 </p>
 
-<p>yeah
-  <%= "#{bill_url(@bill)}.json" %>
-</p>
+
+<%= image_tag @qr %>
+<%= @qr %>
 
 <%= link_to 'Edit', edit_bill_path(@bill) %> |
 <%= link_to 'Back', bills_path %>
+
+<script>
+  $(document).ready(function() {
+    var rfc_clip = new ZeroClipboard($("#rfc_clip"));
+    var nombre_clip = new ZeroClipboard($("#nombre_clip"));
+    var apellido_paterno_clip = new ZeroClipboard($("#apellido_paterno_clip"));
+    var apellido_materno_clip = new ZeroClipboard($("#apellido_materno_clip"));
+    var numero_exterior_clip = new ZeroClipboard($("#numero_exterior_clip"));
+    var colonia_clip = new ZeroClipboard($("#colonia_clip"));
+    var localidad_clip = new ZeroClipboard($("#localidad_clip"));
+    var codigo_postal_clip = new ZeroClipboard($("#codigo_postal_clip"));
+    var calle_clip = new ZeroClipboard($("#calle_clip"));
+    var numero_interior_clip = new ZeroClipboard($("#numero_interior_clip"));
+    var municipio_clip = new ZeroClipboard($("#municipio_clip"));
+    var entidad_federal_clip = new ZeroClipboard($("#entidad_federal_clip"));
+    var correo_clip = new ZeroClipboard($("#correo_clip"));
+    var telefono_clip = new ZeroClipboard($("#telefono_clip"));
+  });
+
+
+</script>

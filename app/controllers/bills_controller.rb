@@ -1,7 +1,7 @@
 require 'rqrcode_png'
 
 class BillsController < ApplicationController
-  before_action :set_bill, only: [:show, :edit, :update, :destroy]
+  before_action :set_bill, only: [:show, :edit, :update, :destroy, :get_code]
 
   # GET /bills
   # GET /bills.json
@@ -22,6 +22,12 @@ class BillsController < ApplicationController
 
   # GET /bills/1/edit
   def edit
+  end
+
+  def get_code
+      data_url = RQRCode::QRCode.new(bill_url(@bill)).to_img.resize(200, 200).to_data_url
+      png = Base64.decode64(data_url['data:image/png;base64,'.length .. -1])
+      send_data png ,:filename => "code.png"
   end
 
   # POST /bills
