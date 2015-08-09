@@ -1,3 +1,5 @@
+require 'rqrcode_png'
+
 class BillsController < ApplicationController
   before_action :set_bill, only: [:show, :edit, :update, :destroy]
 
@@ -10,6 +12,7 @@ class BillsController < ApplicationController
   # GET /bills/1
   # GET /bills/1.json
   def show
+    @qr = RQRCode::QRCode.new(bill_url(@bill)).to_img.resize(200, 200).to_data_url
   end
 
   # GET /bills/new
@@ -28,6 +31,7 @@ class BillsController < ApplicationController
 
     respond_to do |format|
       if @bill.save
+
         format.html { redirect_to @bill, notice: 'Bill was successfully created.' }
         format.json { render :show, status: :created, location: @bill }
       else
